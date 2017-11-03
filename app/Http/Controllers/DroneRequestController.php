@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 
 use App\DroneRequest;
 use App\DroneRequestActivity;
+use App\Http\Requests\SecondApprovalRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+//use App\DroneRejectReason;
 
 class DroneRequestController extends Controller
 {
@@ -144,6 +146,8 @@ class DroneRequestController extends Controller
         $dronRequestActivity->save();
 
         return "Successfully Approved";
+//        \Session::flash('success', 'You have approved the Request');
+//        return Redirect::to('tasks/');
     }
 
     public function Reject($id, Request $request)
@@ -171,7 +175,9 @@ class DroneRequestController extends Controller
         $dronRequestActivity->activity = "rejected drone request";
         $dronRequestActivity->save();
 
-        return "Successfully Rejected drone request";
+        return "rejected successfully";
+//        \Session::flash('success', 'You have Rejected the Request');
+//        return Redirect::to('tasks/');
     }
 
     public function show($id)
@@ -196,8 +202,14 @@ class DroneRequestController extends Controller
 
 
 
+
        // return compact('droneRequest','droneRequestActivity');
         return view('drones.droneApprove',compact('droneRequest','droneRequestActivity','droneRejectReasons'));
+
+        $droneRejectReasons = DroneRejectReason::find([1,2,3]);
+
+        return  view('drones.secondApprovalForm',compact('droneRequest','droneRequestActivity','droneRejectReasons'));
+
     }
 
     public function edit($id)
@@ -212,6 +224,28 @@ class DroneRequestController extends Controller
 
     public function destroy($id)
     {
-        //
+
+    }
+
+    public function test($id)
+    {
+
+        $droneRequest = DroneRequest::with('DroneType')
+            ->with('DroneSubType')
+            ->with('DroneCaseStatus')
+            ->with('Department')
+            ->with('RejectReason')
+            ->where('id',$id)
+            ->first();
+
+        $droneRejectReasons = DroneRejectReason::find([1,2,3]);
+
+
+        $droneRequestActivity = DroneRequestActivity::with('DroneRequest')
+            ->with('User')
+            ->where('drone_request_id',$id)
+            ->get();
+
+        return  view('drones.test',compact('droneRequest','droneRequestActivity','droneRejectReasons'));
     }
 }

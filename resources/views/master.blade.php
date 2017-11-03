@@ -16,6 +16,7 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
   <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ asset('/img/SiteBadge3.png') }}">
   <title>{{ $title }}</title>
   <!-- CSS -->
+<<<<<<< HEAD
   <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('/css/animate.min.css') }}" rel="stylesheet">
   <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -46,6 +47,38 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 {{--<link href="{{ asset('public/bower_components/datatables-responsive/css/responsive.dataTables.scss') }}" rel="stylesheet">--}}
 <!-- jQuery Library -->
   <script src="{{ asset('/js/jquery.min.js') }}"></script>
+=======
+  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/calendar.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/generics.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/token-input.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('/css/media-player.css') }}" rel="stylesheet"> -->
+  <link href="{{ asset('css/file-manager.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/buttons.dataTables.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/HoldOn.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/bootstrap-switch.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('incl/animate.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/Treant.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/collapsable.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('/css/perfect-scrollbar.css') }}" rel="stylesheet"> -->
+  <link href="{{ asset('css/form-builder.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/awesome.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/table.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/toggles.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/toggle-themes/toggles-all.css') }}" rel="stylesheet">
+  <!-- DataTables CSS -->
+  <link href="{{ asset('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css') }}" rel="stylesheet">
+  <!-- DataTables Responsive CSS -->
+{{--<link href="{{ asset('public/bower_components/datatables-responsive/css/responsive.dataTables.scss') }}" rel="stylesheet">--}}
+<!-- jQuery Library -->
+  <script src="{{ asset('js/jquery.min.js') }}"></script>
+>>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwXS96_uM6y-6ZJZhSJGE87pO-qxpDp-Q&libraries=geometry,places"></script>
   {{--<script>--}}
 
@@ -80,7 +113,11 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
     .eerross {
 
+<<<<<<< HEAD
       background-image: url("{{ asset('/img/01_fix_background.png') }}");
+=======
+      background-image: url("{{ asset('img/01_fix_background.png') }}");
+>>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
       width: 100%;
       height: 100%;
     }
@@ -424,6 +461,7 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
     <!-- jQuery -->
 
     <!--Toggles-->
+<<<<<<< HEAD
     <script src="{{ asset('/js/toggles.js') }}"></script>
 
     <script src="{{ asset('/js/jquery-ui.min.js') }}"></script> <!-- jQuery UI -->
@@ -432,28 +470,52 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
     <!-- Bootstrap -->
     <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+=======
+    <script src="{{ asset('js/toggles.js') }}"></script>
+
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script> <!-- jQuery UI -->
+    <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+    <!-- jQuery Easing - Requirred for Lightbox + Pie Charts-->
+
+    <!-- Bootstrap -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+>>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
 
 
 
 
     <!--  Form Related -->
+<<<<<<< HEAD
     <script src="{{ asset('/js/icheck.js') }}"></script> <!-- Custom Checkbox + Radio -->
+=======
+    <script src="{{ asset('js/icheck.js') }}"></script> <!-- Custom Checkbox + Radio -->
+>>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
 
     <!-- UX -->
-    <script src="{{ asset('public/js/scroll.min.js') }}"></script> <!-- Custom Scrollbar -->
+    <script src="{{ asset('js/scroll.min.js') }}"></script> <!-- Custom Scrollbar -->
 
     <!-- Other -->
+<<<<<<< HEAD
     <script src="{{ asset('/js/calendar.min.js') }}"></script> <!-- Calendar -->
     <script src="{{ asset('/js/feeds.min.js') }}"></script> <!-- News Feeds -->
+=======
+    <script src="{{ asset('js/calendar.min.js') }}"></script> <!-- Calendar -->
+    <script src="{{ asset('js/feeds.min.js') }}"></script> <!-- News Feeds -->
+>>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
 
 
     <!--  Form Related -->
     <script src="{{ asset('/js/validation/validate.min.js') }}"></script> <!-- jQuery Form Validation Library -->
+<<<<<<< HEAD
     <script src="{{ asset('/js/validation/validationEngine.min.js') }}"></script>
+=======
+    <script src="{{ asset('js/validation/validationEngine.min.js') }}"></script>
+>>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
     <!-- jQuery Form Validation Library - requirred with above js -->
 
 
     <!-- All JS functions -->
+<<<<<<< HEAD
     <script src="{{ asset('/js/functions.js') }}"></script>
 
 
@@ -463,17 +525,35 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
     <!-- Noty JavaScript -->
     <script src="{{ asset('/bower_components/noty/js/noty/packaged/jquery.noty.packaged.js') }}"></script>
+=======
+    <script src="{{ asset('js/functions.js') }}"></script>
+
+
+    <!-- Token Input -->
+    <script src="{{ asset('js/jquery.tokeninput.js') }}"></script> <!-- Token Input -->
+
+
+    <!-- Noty JavaScript -->
+    <script src="{{ asset('bower_components/noty/js/noty/packaged/jquery.noty.packaged.js') }}"></script>
+>>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
 
     <!-- DataTables JavaScript -->
 
 
+<<<<<<< HEAD
     <script src="{{ asset('/bower_components/datatables/media/js/datatables-plugins/pagination/scrolling.js') }}"></script>
     <script src="{{ asset('/bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
+=======
+    <script src="{{ asset('bower_components/datatables/media/js/datatables-plugins/pagination/scrolling.js') }}"></script>
+    <script src="{{ asset('bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
+>>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
 
 
 
     <!-- Jquery Bootstrap Maxlength -->
+<<<<<<< HEAD
     <script src="{{ asset('/bower_components/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
 
 
@@ -484,10 +564,23 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
 
     <script type="text/javascript" src="{{ asset('/incl/oms.min.js') }}"></script>
+=======
+    <script src="{{ asset('bower_components/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+
+
+    <!-- Media -->
+    <script src="{{ asset('js/media-player.min.js') }}"></script> <!-- Video Player -->
+    <script src="{{ asset('js/pirobox.min.js') }}"></script> <!-- Lightbox -->
+    <script src="{{ asset('js/file-manager/elfinder.js') }}"></script> <!-- File Manager -->
+
+
+    <script type="text/javascript" src="{{ asset('incl/oms.min.js') }}"></script>
+>>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
 
 
 
     <!-- File Upload -->
+<<<<<<< HEAD
     <script src="{{ asset('/js/fileupload.min.js') }}"></script> <!-- File Upload -->
 
     <!-- Spinner -->
@@ -512,6 +605,32 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
     <script src="{{ asset('/js/calendar.min.js') }}"></script> <!-- Calendar -->
 
     <script src="{{ asset('/js/raphael.js') }}"></script>
+=======
+    <script src="{{ asset('js/fileupload.min.js') }}"></script> <!-- File Upload -->
+
+    <!-- Spinner -->
+    <script src="{{ asset('js/HoldOn.min.js') }}"></script> <!-- Spinner -->
+
+    <!-- bootstrap-switch. -->
+    <script src="{{ asset('js/bootstrap-switch.js') }}"></script> <!-- bootstrap-switch. -->
+
+    <!-- Date & Time Picker -->
+    <script src="{{ asset('js/datetimepicker.min.js') }}"></script> <!-- Date & Time Picker -->
+
+    <!-- Buttons HTML5 -->
+    <script src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('js/jszip.min.js') }}"></script>
+    <script src="{{ asset('js/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('js/vfs_fonts.js') }}"></script>
+    <!--  Buttons HTML5 -->
+
+    <script src="{{ asset('js/socket.io.js') }}"></script>
+
+    <script src="{{ asset('js/calendar.min.js') }}"></script> <!-- Calendar -->
+
+    <script src="{{ asset('js/raphael.js') }}"></script>
+>>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
 
 
 
@@ -543,7 +662,11 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
 
     <!-- zoomchart -->
+<<<<<<< HEAD
     <script src="{{ asset('/js/zoomcharts.js') }}"></script>
+=======
+    <script src="{{ asset('js/zoomcharts.js') }}"></script>
+>>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
 
     <script>
 			$(document).ready(function () {
@@ -728,4 +851,5 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 			});
 		});
   </script>
-</body></html>
+</body>
+</html>

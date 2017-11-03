@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use App\DroneRejectReason;
 use Illuminate\Support\ServiceProvider;
 use App\Position;
 use App\Department;
@@ -173,6 +174,7 @@ class AppServiceProvider extends ServiceProvider
              \View::share('selectReligions',$selectReligions);
 
         }
+
 
         if (\Schema::hasTable('qualification_types'))
         {
