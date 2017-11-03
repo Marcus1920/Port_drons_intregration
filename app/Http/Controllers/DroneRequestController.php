@@ -12,44 +12,49 @@ use Auth;
 
 class DroneRequestController extends Controller
 {
+    public function getList()
+    {
+        return view('drones.DroneRequestList');
+    }
 
     public function index()
     {
         //Eloquent
-        $droneRequests = DroneRequest::with('User')
-            ->with('DroneType')
-            ->with('DroneSubType')
-            ->with('DroneCaseStatus')
-            ->with('Department')
-            ->with('RejectReason')
-            ->get();
-
-//        $droneRequests = \DB::table('drone_requests')
-//            ->join('drone_types', 'drone_requests.drone_type_id', '=', 'drone_types.id')
-//            ->join('drone_sub_types', 'drone_requests.sub_drone_type_id', '=', 'drone_sub_types.id')
-//            ->join('users', 'drone_requests.created_by', '=', 'users.id')
-//            ->join('drone_approval_statuses', 'drone_requests.drone_case_status', '=', 'drone_approval_statuses.id')
-//            ->join('departments', 'drone_requests.department', '=', 'departments.id')
-//            ->join('drone_reject_reasons', 'drone_requests.reject_reason', '=', 'drone_reject_reasons.id')
-//            ->select(\DB::raw
-//            (
-//                "
-//                    drone_requests.id,
-//                    drone_requests.created_at,
-//                    drone_types.name as DroneType,
-//                    drone_sub_types.name as DroneSubType,
-//                    drone_requests.comments,
-//                    users.name as CreatedBy,
-//                    drone_approval_statuses.name as CaseStatus,
-//                    departments.name as Department,
-//                    drone_reject_reasons.reason as RejectReason
-//                "
-//            )
-//            )
-//            ->orderBy('created_at','DESC')
+//        $droneRequests = DroneRequest::with('User')
+//            ->with('DroneType')
+//            ->with('DroneSubType')
+//            ->with('DroneCaseStatus')
+//            ->with('Department')
+//            ->with('RejectReason')
 //            ->get();
 
-        return $droneRequests;
+        $droneRequests = \DB::table('drone_requests')
+            ->join('drone_types', 'drone_requests.drone_type_id', '=', 'drone_types.id')
+            ->join('drone_sub_types', 'drone_requests.sub_drone_type_id', '=', 'drone_sub_types.id')
+            ->join('users', 'drone_requests.created_by', '=', 'users.id')
+            ->join('drone_approval_statuses', 'drone_requests.drone_case_status', '=', 'drone_approval_statuses.id')
+            ->join('departments', 'drone_requests.department', '=', 'departments.id')
+            ->join('drone_reject_reasons', 'drone_requests.reject_reason', '=', 'drone_reject_reasons.id')
+            ->select(\DB::raw
+            (
+                "
+                    drone_requests.id,
+                    drone_requests.created_at,
+                    drone_types.name as DroneType,
+                    drone_sub_types.name as DroneSubType,
+                    drone_requests.comments,
+                    users.name as CreatedBy,
+                    drone_approval_statuses.name as CaseStatus,
+                    departments.name as Department,
+                    drone_requests.comments,
+                    drone_reject_reasons.reason as RejectReason
+                "
+            )
+            )
+            ->groupBy('drone_requests.id');
+
+        return \Datatables::of($droneRequests)
+            ->make(true);
     }
 
     public function create()

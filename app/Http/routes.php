@@ -1255,6 +1255,7 @@ Route::group(array('prefix' => 'api/v1'), function()
     Route::get('userDepartment','DronesController@userDepartment');
 });
 
+Route::get('DroneList','DroneRequestController@getList');
 
 Route::get('requestForm','DroneTypesController@index');
 
