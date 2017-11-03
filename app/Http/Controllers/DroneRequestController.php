@@ -150,12 +150,14 @@ class DroneRequestController extends Controller
         {
             $dronRequest = DroneRequest::where('id',$id)
                 ->update(['drone_case_status'=> 4,
+                    'reject_reason'=>$request['reject_reason'],
                     'updated_at'=>\Carbon\Carbon::now('Africa/Johannesburg')->toDateTimeString()]);
         }
         else
         {
             $dronRequest = DroneRequest::where('id',$id)
                 ->update(['drone_case_status'=> 4,
+                    'reject_reason'=>$request['reject_reason'],
                     'reject_other_reason'=>$request['reject_other_reason'],
                     'updated_at'=>\Carbon\Carbon::now('Africa/Johannesburg')->toDateTimeString()]);
         }
