@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 
 use App\DroneRequest;
 use App\DroneRequestActivity;
+use App\Http\Requests\SecondApprovalRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\DroneRejectReason;
+
 class DroneRequestController extends Controller
 {
 
@@ -141,9 +143,9 @@ class DroneRequestController extends Controller
         $dronRequestActivity->activity = "final approved drone request";
         $dronRequestActivity->save();
 
-        //return "Successfully Approved";
-        \Session::flash('success', 'You have approved the Request');
-        return Redirect::to('tasks/');
+        return "Successfully Approved";
+//        \Session::flash('success', 'You have approved the Request');
+//        return Redirect::to('tasks/');
     }
 
     public function Reject($id, Request $request)
@@ -171,9 +173,9 @@ class DroneRequestController extends Controller
         $dronRequestActivity->activity = "rejected drone request";
         $dronRequestActivity->save();
 
-        //return Redirect::back();
-        \Session::flash('success', 'You have Rejected the Request');
-        return Redirect::to('tasks/');
+        return "rejected successfully";
+//        \Session::flash('success', 'You have Rejected the Request');
+//        return Redirect::to('tasks/');
     }
 
     public function show($id)
@@ -191,8 +193,9 @@ class DroneRequestController extends Controller
             ->where('drone_request_id',$id)
             ->get();
 
-        $droneRejectReasons = DroneRejectReason::all();
-        return  view('drones.test',compact('droneRequest','droneRequestActivity','droneRejectReasons'));
+        $droneRejectReasons = DroneRejectReason::find([1,2,3]);
+
+        return  view('drones.secondApprovalForm',compact('droneRequest','droneRequestActivity','droneRejectReasons'));
     }
 
     public function edit($id)

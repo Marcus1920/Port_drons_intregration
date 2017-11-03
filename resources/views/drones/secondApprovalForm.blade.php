@@ -53,7 +53,7 @@
             {!! Form::hidden('id',$item->drone_request_id)!!}
             {!! Form::hidden('user',Auth::user()->id)!!}
             <div class="form-group">
-                {!! Form::label('', '', array('class' => 'col-md-3 control-label')) !!}
+                {!! Form::label('', '', array('class' => 'col-md-1 control-label')) !!}
                 <div class="col-md-6">
                     {!! Form::textarea('comment',$droneRequest->comments,['class' => 'form-control input-sm','id' => 'comment','disabled']) !!}
                 </div>
@@ -64,55 +64,60 @@
 
         <h3 class="block-title">ACTION</h3>
 
-        <div class="row" style="margin-left: 500px;">
+        <div class="row" style="margin-left: 100px;">
 
-            {{--{!! Form::open(['url' => 'tasks', 'method' => 'post', 'class' => 'form-horizontal', 'id'=>"addTaskCaptureForm" ]) !!}--}}
-            {!! Form::open(['url' => 'api/v1/finalDroneApproval/'.$item->drone_request_id, 'method' => 'post', 'class' => 'form-horizontal', 'id'=>"secondApprovalForm" ]) !!}
-            {!! Form::hidden('user',Auth::user()->id)!!}
-            <div class="form-group">
-                <div class="col-md-6" style="margin-top:20px;">
-                    <button type="submit" class="btn btn-primary" id="approveId">Approve</button>
+          <div class="col">
+              {!! Form::open(['url' => 'api/v1/finalDroneApproval/'.$item->drone_request_id, 'method' => 'post', 'class' => 'form-horizontal', 'id'=>"secondApprovalForm" ]) !!}
+              {!! Form::hidden('user',Auth::user()->id)!!}
+              <div class="form-group">
+                  <div class="col-md-6" style="margin-top:20px;">
+                      <button type="submit" class="btn btn-primary" id="approveId">Approve</button>
 
-                </div>
-            </div>
-        {!! Form::close() !!}
+                  </div>
+              </div>
+              {!! Form::close() !!}
+          </div>
+          <div class="col">
+              {!! Form::open(['url' => 'api/v1/rejectDroneRequest/'.$item->drone_request_id, 'method' => 'post', 'class' => 'form-horizontal', 'id'=>"secondRejectForm" ]) !!}
+              {!! Form::hidden('user',Auth::user()->id)!!}
 
+              <div class="form-group">
+                  <div class="col-md-6" style="margin-top:20px;">
+                      <button type="button" class="btn  btn-danger" id="rejectId">Reject</button>
 
+                  </div>
+              </div>
 
-            {!! Form::open(['url' => 'api/v1/rejectDroneRequest/'.$item->drone_request_id, 'method' => 'post', 'class' => 'form-horizontal', 'id'=>"secondRejectForm" ]) !!}
-        {!! Form::hidden('user',Auth::user()->id)!!}
+              <div class="form-group reason hidden ">
+                  <div class="col-md-6" >
+                      <div class="col-md-3 " style="margin-top:10px;">
+                          <select name="reject_reason" id="reject_reason" class="form-control input-sm">
+                              <option value="0"  selected disabled>-select reason-</option>
+                              @foreach($droneRejectReasons as $reason)
+                                  <option value="{{$reason->id}}" name="reject_reason" id="{{$reason->id}}">{{$reason->reason}}</option>
+                                  @if ($errors->has('reject_reason')) <p class="help-block red">*{{ $errors->first('reject_reason') }}</p> @endif
+                              @endforeach
+                          </select>
+                      </div>
+                  </div>
+              </div>
+              <br/>
 
-        <div class="form-group">
-            <div class="col-md-6" style="margin-top:20px;">
-                <button type="button" class="btn  btn-danger" id="rejectId">Reject</button>
+              <div class="form-group noneReason hidden" >
+                  {!! Form::label('', '') !!}
+                  <div class="col-md-6">
+                      {!! Form::textarea('reject_other_reason',null,['class' => 'form-control input-sm','id' => 'reject_other_reason','placeholder'=>'Type the other reason here.']) !!}
+                      @if ($errors->has('reject_other_reason')) <p class="help-block red">*{{ $errors->first('reject_other_reason') }}</p> @endif
+                  </div>
+              </div>
 
-            </div>
-        </div>
-
-            <div class="form-group reason hidden ">
-                <div class="col-md-6">
-                    <div class="col-md-3 " style="margin-top:10px;">
-                        <select name="rejectReason" id="rejectReason" class="form-control input-sm" disabled>
-                            <option value="">-reject reason-</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <br/>
-
-            <div class="form-group">
-                {!! Form::label('', '', array('class' => 'col-md-3 control-label')) !!}
-                <div class="col-md-6">
-                    {!! Form::textarea('comment',$droneRequest->comments,['class' => 'form-control input-sm','id' => 'comment','disabled']) !!}
-                </div>
-            </div>
-
-            <div class="form-group submit hidden">
-                <div class="col-md-10">
-                    <button type="submit" type="button" class="btn btn-sm" id="submitId" disabled>Submit</button>
-                </div>
-            </div>
-            {!! Form::close() !!}
+              <div class="form-group submit hidden">
+                  <div class="col-md-10">
+                      <button type="submit" type="button" class="btn btn-sm" id="submitId" disabled>Submit</button>
+                  </div>
+              </div>
+              {!! Form::close() !!}
+          </div>
         </div>
     </div>
 @endsection
@@ -123,8 +128,19 @@
             $('.reason').removeClass('hidden');
             $('.submit').removeClass('hidden');
             $("#submitId").removeAttr('disabled');
-            $("#rejectReason").attr('disabled','disabled');
             $("#approveId").attr('disabled','disabled');
+        })
+
+        $('#reject_reason').on('change',function(){
+            var selectedval  = $(this).find("option:selected").val();
+            if(selectedval == 3 ){
+
+                $('.noneReason').removeClass('hidden');
+            } else {
+
+                $('.noneReason').addClass('hidden');
+            }
+
         })
     </script>
 @endsection
