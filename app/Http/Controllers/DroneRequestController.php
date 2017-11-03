@@ -76,6 +76,41 @@ class DroneRequestController extends Controller
         $dronRequestActivity->activity = "requested a drone";
         $dronRequestActivity->save();
 
+        $userRole = User::find($request['created_by']);
+        $position = Position::find($userRole->position);
+
+        if($position->name == "SHE Representative")
+        {
+            $responderPosition = Position::where('name','Environmental Manager')->first();
+            $droneRequestResponder = User::where('position',$responderPosition->id)->get();
+
+            $data = array(
+                'name'    => $droneRequestResponder[0]['name'],
+
+            );
+
+            \Mail::send('emails.Drones.DronesRequestCreate',$data,function($message) use ($droneRequestResponder)
+            {
+                $email = $droneRequestResponder[0]['email'];
+                $message->from('info@siyaleader.net', 'Siyaleader');
+                $message->to($email)->subject('testing notification');
+            });
+
+            return "Drone request created";
+        }
+        else if($position->name == "Engineering officer")
+        {
+            return "Engineering officer";
+        }
+        else if($position->name == "Vessel Traffic Controller")
+        {
+            return "vessel traffic controller";
+        }
+        else if($position->name == "Joint Operations Centre Monitor")
+        {
+            return "joint operations centre monitor";
+        }
+
         return "Drone request created";
     }
 
