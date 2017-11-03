@@ -150,7 +150,8 @@ class DroneRequestController extends Controller
             ->where('drone_request_id',$id)
             ->get();
 
-        return compact('droneRequest','droneRequestActivity');
+       // return compact('droneRequest','droneRequestActivity');
+        return view('drones.droneApprove',compact('droneRequest','droneRequestActivity'));
     }
 
     public function edit($id)
