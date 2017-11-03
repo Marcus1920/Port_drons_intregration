@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DroneRejectReason;
 use Illuminate\Http\Request;
 
 use App\DroneRequest;
@@ -126,7 +127,8 @@ class DroneRequestController extends Controller
         $dronRequestActivity->activity = "first approved drone request";
         $dronRequestActivity->save();
 
-        return $dronRequestActivity;
+       // return $dronRequestActivity;
+        return"Successfully Approved";
     }
 
     public function Approve($id, Request $request)
@@ -182,13 +184,20 @@ class DroneRequestController extends Controller
             ->where('id',$id)
             ->first();
 
+     $droneRejectReasons=DroneRejectReason::find([1,2,3]);
+        //$droneRejectReasons=[1,2,3];
+
+
+
         $droneRequestActivity = DroneRequestActivity::with('DroneRequest')
             ->with('User')
             ->where('drone_request_id',$id)
             ->get();
 
+
+
        // return compact('droneRequest','droneRequestActivity');
-        return view('drones.droneApprove',compact('droneRequest','droneRequestActivity'));
+        return view('drones.droneApprove',compact('droneRequest','droneRequestActivity','droneRejectReasons'));
     }
 
     public function edit($id)

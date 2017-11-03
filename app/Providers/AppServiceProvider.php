@@ -93,7 +93,6 @@ class AppServiceProvider extends ServiceProvider
 
         }
 
-
         if (\Schema::hasTable('calendar_event_types'))
         {
             $calendarEventType          = CalendarEventType::orderBy('name','ASC')
@@ -108,6 +107,24 @@ class AppServiceProvider extends ServiceProvider
              \View::share('selectCalendarEventType',$selectCalendarEventType);
 
         }
+
+//
+//        if (\Schema::hasTable('drone_reject_reasons'))
+//        {
+//            $DroneRejectReasons          = DroneRejectReason::where('reason')
+//                ->get();
+//            $selectDroneRejectReasons     = array();
+//            $selectDroneRejectReasons[0] = "Select / RejectReason";
+//
+//            foreach ($DroneRejectReasons as $DroneRejectReason) {
+//                $selectDroneRejectReasons[$DroneRejectReason->slug] = $DroneRejectReason->reason;
+//            }
+//
+//            \View::share('selectDroneRejectReasons',$selectDroneRejectReasons);
+//
+//        }
+
+
 	
 	//if (\Schema::hasTable('investigation_officers'))
 	if (class_exists(InvestigationOfficer::class))
@@ -124,6 +141,9 @@ class AppServiceProvider extends ServiceProvider
              \View::share('selectOfficers',$selectOfficers);
 
         }
+
+
+
 
         if (\Schema::hasTable('training_types'))
         {
