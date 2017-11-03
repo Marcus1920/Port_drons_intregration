@@ -1231,10 +1231,11 @@ Route::group(array('prefix' => 'api/v1'), function()
 {    /*|--------------------------------------------------------------------------|
     DRONE ROUTING
     |--------------------------------------------------------------------------|*/
-    Route::resource('drone', 'DroneRequestController');
     Route::post('firstDroneApproval/{id}', 'DroneRequestController@FirstApprove');
     Route::post('finalDroneApproval/{id}', 'DroneRequestController@Approve');
     Route::post('rejectDroneRequest/{id}', 'DroneRequestController@Reject');
+    Route::resource('drone', 'DroneRequestController');
+
 
     /*|--------------------------------------------------------------------------|
     END DRONE ROUTING
@@ -1256,5 +1257,5 @@ Route::group(array('prefix' => 'api/v1'), function()
 });
 
 
-Route::get('requestForm','DroneTypesController@index');
+Route::get('test/{id}','DroneRequestController@test');
 
