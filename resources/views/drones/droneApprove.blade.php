@@ -2,7 +2,7 @@
 @section('content')
     <div class="block-area container" id="droneApproval">
         <ol class="breadcrumb hidden-xs">
-            <li><a href="{{ url('Drones') }}">Drone LIST</a></li>
+            <li><a href="{{ url('drones') }}">Drone LIST</a></li>
             <li class="active"></li>
         </ol>
         <h4 class="page-title">First Approval</h4>
@@ -82,6 +82,13 @@
                     </div>
                 </div>
                 <br/>
+                <div class="form-group otherReason hidden" >
+                    {!! Form::label('', '') !!}
+                    <div class="col-md-6">
+                        {!! Form::textarea('reject_other_reason',null,['class' => 'form-control input-sm','id' => 'reject_other_reason','placeholder'=>'other reason.']) !!}
+                        @if ($errors->has('reject_other_reason')) <p class="help-block red">*{{ $errors->first('reject_other_reason') }}</p> @endif
+                    </div>
+                </div>
 
                 <div class="form-group submit hidden">
                     <div class="col-md-10">
@@ -102,6 +109,17 @@
             $('.submit').removeClass('hidden');
             $("#submitId").removeAttr('disabled');
             $("#approveId").attr('disabled','disabled');
+        })
+        $('#reject_reason').on('change',function(){
+            var val  = $(this).find("option:selected").val();
+            if(val == 3 ){
+
+                $('.otherReason').removeClass('hidden');
+            } else {
+
+                $('.otherReason').addClass('hidden');
+            }
+
         })
     </script>
 @endsection
