@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+use App\Position;
 use App\DroneRequest;
 use App\DroneRequestActivity;
 use App\Http\Requests;
@@ -168,6 +170,21 @@ class DroneRequestController extends Controller
             ->with('RejectReason')
             ->where('id',$id)
             ->first();
+
+        $droneActivity = DroneRequestActivity::where('drone_request_id',$id)->get();
+
+        $firstResponder = User::find($droneActivity[1]['user']);
+
+        $data1 = array(
+            'name'    => $firstResponder->name,
+
+        );
+
+        \Mail::send('emails.Drones.DronesRequestCreate',$data1,function($message) use ($firstResponder)
+        {
+            $message->from('info@siyaleader.net', 'Siyaleader');
+            $message->to($firstResponder->email)->subject('Second approved drone request');
+        });
 
         $data = array(
             'name'    => $droneRequest->User->name,
