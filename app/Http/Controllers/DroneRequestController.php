@@ -132,7 +132,6 @@ class DroneRequestController extends Controller
        // return $dronRequestActivity;
         return"Successfully Approved";
     }
-
     public function Approve($id, Request $request)
     {
         $dronRequest = DroneRequest::where('id',$id)

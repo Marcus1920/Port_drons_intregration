@@ -16,7 +16,7 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
   <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ asset('/img/SiteBadge3.png') }}">
   <title>{{ $title }}</title>
   <!-- CSS -->
-<<<<<<< HEAD
+
   <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('/css/animate.min.css') }}" rel="stylesheet">
   <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -47,7 +47,7 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 {{--<link href="{{ asset('public/bower_components/datatables-responsive/css/responsive.dataTables.scss') }}" rel="stylesheet">--}}
 <!-- jQuery Library -->
   <script src="{{ asset('/js/jquery.min.js') }}"></script>
-=======
+
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
@@ -78,7 +78,7 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 {{--<link href="{{ asset('public/bower_components/datatables-responsive/css/responsive.dataTables.scss') }}" rel="stylesheet">--}}
 <!-- jQuery Library -->
   <script src="{{ asset('js/jquery.min.js') }}"></script>
->>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
+
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwXS96_uM6y-6ZJZhSJGE87pO-qxpDp-Q&libraries=geometry,places"></script>
   {{--<script>--}}
 
@@ -113,11 +113,11 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
     .eerross {
 
-<<<<<<< HEAD
+
       background-image: url("{{ asset('/img/01_fix_background.png') }}");
-=======
+
       background-image: url("{{ asset('img/01_fix_background.png') }}");
->>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
+
       width: 100%;
       height: 100%;
     }
@@ -461,7 +461,7 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
     <!-- jQuery -->
 
     <!--Toggles-->
-<<<<<<< HEAD
+
     <script src="{{ asset('/js/toggles.js') }}"></script>
 
     <script src="{{ asset('/js/jquery-ui.min.js') }}"></script> <!-- jQuery UI -->
@@ -470,7 +470,6 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
     <!-- Bootstrap -->
     <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
-=======
     <script src="{{ asset('js/toggles.js') }}"></script>
 
     <script src="{{ asset('js/jquery-ui.min.js') }}"></script> <!-- jQuery UI -->
@@ -479,43 +478,43 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
     <!-- Bootstrap -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
->>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
+
 
 
 
 
     <!--  Form Related -->
-<<<<<<< HEAD
+
     <script src="{{ asset('/js/icheck.js') }}"></script> <!-- Custom Checkbox + Radio -->
-=======
+
     <script src="{{ asset('js/icheck.js') }}"></script> <!-- Custom Checkbox + Radio -->
->>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
+
 
     <!-- UX -->
     <script src="{{ asset('js/scroll.min.js') }}"></script> <!-- Custom Scrollbar -->
 
     <!-- Other -->
-<<<<<<< HEAD
+
     <script src="{{ asset('/js/calendar.min.js') }}"></script> <!-- Calendar -->
     <script src="{{ asset('/js/feeds.min.js') }}"></script> <!-- News Feeds -->
-=======
+
     <script src="{{ asset('js/calendar.min.js') }}"></script> <!-- Calendar -->
     <script src="{{ asset('js/feeds.min.js') }}"></script> <!-- News Feeds -->
->>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
+
 
 
     <!--  Form Related -->
     <script src="{{ asset('/js/validation/validate.min.js') }}"></script> <!-- jQuery Form Validation Library -->
-<<<<<<< HEAD
+
     <script src="{{ asset('/js/validation/validationEngine.min.js') }}"></script>
-=======
+
     <script src="{{ asset('js/validation/validationEngine.min.js') }}"></script>
->>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
+
     <!-- jQuery Form Validation Library - requirred with above js -->
 
 
     <!-- All JS functions -->
-<<<<<<< HEAD
+
     <script src="{{ asset('/js/functions.js') }}"></script>
 
 
@@ -525,7 +524,7 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
     <!-- Noty JavaScript -->
     <script src="{{ asset('/bower_components/noty/js/noty/packaged/jquery.noty.packaged.js') }}"></script>
-=======
+
     <script src="{{ asset('js/functions.js') }}"></script>
 
 
@@ -535,25 +534,25 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
     <!-- Noty JavaScript -->
     <script src="{{ asset('bower_components/noty/js/noty/packaged/jquery.noty.packaged.js') }}"></script>
->>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
+
 
     <!-- DataTables JavaScript -->
 
 
-<<<<<<< HEAD
+
     <script src="{{ asset('/bower_components/datatables/media/js/datatables-plugins/pagination/scrolling.js') }}"></script>
     <script src="{{ asset('/bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
-=======
+
     <script src="{{ asset('bower_components/datatables/media/js/datatables-plugins/pagination/scrolling.js') }}"></script>
     <script src="{{ asset('bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
->>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
+
 
 
 
     <!-- Jquery Bootstrap Maxlength -->
-<<<<<<< HEAD
+
     <script src="{{ asset('/bower_components/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
 
 
@@ -564,7 +563,7 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
 
     <script type="text/javascript" src="{{ asset('/incl/oms.min.js') }}"></script>
-=======
+
     <script src="{{ asset('bower_components/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
 
 
@@ -575,12 +574,12 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
 
     <script type="text/javascript" src="{{ asset('incl/oms.min.js') }}"></script>
->>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
+
 
 
 
     <!-- File Upload -->
-<<<<<<< HEAD
+
     <script src="{{ asset('/js/fileupload.min.js') }}"></script> <!-- File Upload -->
 
     <!-- Spinner -->
@@ -605,7 +604,7 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
     <script src="{{ asset('/js/calendar.min.js') }}"></script> <!-- Calendar -->
 
     <script src="{{ asset('/js/raphael.js') }}"></script>
-=======
+
     <script src="{{ asset('js/fileupload.min.js') }}"></script> <!-- File Upload -->
 
     <!-- Spinner -->
@@ -630,7 +629,7 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
     <script src="{{ asset('js/calendar.min.js') }}"></script> <!-- Calendar -->
 
     <script src="{{ asset('js/raphael.js') }}"></script>
->>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
+
 
 
 
@@ -662,11 +661,11 @@ $title .= " - " . Route::getCurrentRoute()->getUri();
 
 
     <!-- zoomchart -->
-<<<<<<< HEAD
+
     <script src="{{ asset('/js/zoomcharts.js') }}"></script>
-=======
+
     <script src="{{ asset('js/zoomcharts.js') }}"></script>
->>>>>>> f0e99f9f8125fb4fa0c7e820ad20223bdefd9196
+
 
     <script>
 			$(document).ready(function () {

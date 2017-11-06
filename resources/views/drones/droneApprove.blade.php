@@ -1,114 +1,108 @@
 @extends('master')
-
 @section('content')
     <div class="block-area container" id="droneApproval">
         <ol class="breadcrumb hidden-xs">
-            <li><a href="{{ url('tasks') }}"></a></li>
+            <li><a href="{{ url('Drones') }}">Drone LIST</a></li>
             <li class="active"></li>
         </ol>
         <h4 class="page-title">First Approval</h4>
         <br>
         <div class="row justify-content-center">
-            <div  class="col-md-4 " style="margin-left: 200px;">
-                <h3 class="block-title">DETAILS</h3>
-                <h5 class="h3"> Case  Number   :{{$droneRequest->id}}</h5>
-                <h5 class="h3">Case Status     :{{$droneRequest->DroneCaseStatus->name}} </h5>
-                <h5 class="h3">Case logged Date:{{$droneRequest->created_at}}</h5>
-                <h5 class="h3">Case Duration   :{{$droneRequest->created_at->diffForHumans()}}</h5>
+            <div  class="col-md-4 ">
+                <h3 class="block-title">CASE DETAILS</h3>
+                <h5 class="h3"><small style="color: white;" >Case  Number</small>   : {{$droneRequest->id}}</h5>
+                <h5 class="h3"><small style="color: white;">Case Status </small>     : {{$droneRequest->DroneCaseStatus->name}} </h5>
+                <h5 class="h3"><small style="color: white;">Case logged Date</small> : {{$droneRequest->created_at}} </h5>
+                <h5 class="h3"><small style="color: white;">Case Duration </small>   : {{$droneRequest->created_at->diffForHumans()}}</h5>
             </div>
             <div  class="col-md-4">
-                <h3 class="block-title"> DETAILS</h3>
-                <h5 class="h3">  Service  Request : {{$droneRequest->DroneType->name}} </h5>
-                <h5 class="h3">Drone sub type  : {{$droneRequest->DroneSubType->name}}</h5>
-                <h5 class="h3">Created by :{{$droneRequest->User->name}} {{$droneRequest->User->surname}} </h5>
-                <h5 class="h3">Department Requested Service:  {{$droneRequest->Department->name}}</h5>
+                <h3 class="block-title">DRONES DETAILS</h3>
+                <h5 class="h3"><small style="color: white;">Drone Type</small>   : {{$droneRequest->DroneType->name}} </h5>
+                <h5 class="h3"><small style="color: white;">Drone Service Request</small>  :  {{$droneRequest->DroneSubType->name}} </h5>
+                <h5 class="h3"><small style="color: white;">Requested by</small> : {{$droneRequest->User->name}} {{$droneRequest->User->surname}}</h5>
+                <h5 class="h3"><small style="color: white;">Department Requested Service</small> :  {{$droneRequest->Department->name}}</h5>
             </div>
-        </div>
-        <br/>
-        <div  class="col-md-4 " style="margin-right: 200px;">
-            {{--<h3 class="block-title">ACTION</h3>--}}
-        </div>
-        <div class="row" style="margin-left: 500px;">
 
-            {!! Form::open(['url' => 'http://localhost:8000/api/v1/firstDroneApproval/1','method' => 'post', 'class' => 'form-horizontal', 'id'=>"drone_request_id" ]) !!}
-           {{--// {!! Form::hidden(['user'=>]) !!}--}}
-            {!! Form::hidden('user',Auth::user()->id) !!}
+        </div>
+        <h3 class="block-title">COMMENTS</h3>
+        <div class="row">
+            {!! Form::open(['url' => 'tasks', 'method' => 'post', 'class' => 'form-horizontal', 'id'=>"addTaskCaptureForm" ]) !!}
+            {!! Form::hidden('user',Auth::user()->id)!!}
             <div class="form-group">
-                <div class="col-md-6" style="margin-top:20px;">
-                    <button id="approveId" class="btn btn-primary">Approve</button>
-                    <button type="button" class="btn  btn-danger" id="rejectId">Reject</button>
-                </div>
-            </div>
-
-            <div class="form-group reason hidden ">
+                {!! Form::label('', '', array('class' => 'col-md-1 control-label')) !!}
                 <div class="col-md-6">
-                    <div class="col-md-3 " style="margin-top:10px;">
-                        <select name="rejectReason" id="rejectReason" class="form-control input-sm" >
-                            <option value="">--Select Reason--</option>
-                            @foreach($droneRejectReasons as $droneRejectReason)
-                            {
-                            <option value="{{$droneRejectReason->id}}">{{$droneRejectReason->reason}}</option>
-                            }
-
-                            @endforeach
-
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <br/>
-            <div class="form-group other reason hidden" >
-                <div class="row">
-
-                    <div class="col-md-6">
-                        {{--<label for="comment">Comment</label>--}}
-                        {!! Form::label('Comment for other','Comment',array('class'=>'col-md-3 control-label'))!!}
-                        <textarea id="commentId" rows="5" class="form-control" name="comm_other" ></textarea>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="form-group" >
-                <div class="row">
-
-                    <div class="col-md-6">
-                        {{--<label for="comment">Comment</label>--}}
-                        {!! Form::label('Comment','Comment',array('class'=>'col-md-3 control-label'))!!}
-                        <textarea id="comment" rows="5" class="form-control" name="comment" ></textarea>
-
-                    </div>
-
-                </div>
-            </div>
-            <br/>
-
-            <div class="form-group submit">
-                <div class="col-md-10">
-                    <button type="submit" type="button" class="btn btn-sm" id="submitId" >Submit</button>
+                    {{--{!! Form::textarea('comment',$droneRequest->comments,['class' => 'form-control input-sm','id' => 'comment']) !!}--}}
+                    <textarea id="comment" rows="5" class="form-control" name="comment" ></textarea>
                 </div>
             </div>
             {!! Form::close() !!}
         </div>
-    </div>
+        <br/>
 
+        <h3 class="block-title">ACTION</h3>
+
+        <div class="row" style="margin-left: 100px;">
+
+            <div class="col">
+                {!! Form::open(['url' => 'http://localhost:8000/api/v1/firstDroneApproval/1', 'method' => 'post', 'class' => 'form-horizontal', 'id'=>"drone_request_id" ]) !!}
+                {!! Form::hidden('user',Auth::user()->id)!!}
+                <div class="form-group">
+                    <div class="col-md-6" style="margin-top:20px;">
+                        <button type="submit" class="btn btn-primary" id="approveId">Approve</button>
+
+                    </div>
+                </div>
+                {!! Form::close() !!}
+            </div>
+            <div class="col">
+                {!! Form::open(['url' => 'http://localhost:8000/api/v1/rejectDroneRequest/1', 'method' => 'post', 'class' => 'form-horizontal', 'id'=>"drone_request_id" ]) !!}
+                {!! Form::hidden('user',Auth::user()->id)!!}
+
+                <div class="form-group">
+                    <div class="col-md-6" style="margin-top:20px;">
+                        <button type="button" class="btn  btn-danger" id="rejectId">Reject</button>
+
+                    </div>
+                </div>
+
+                <div class="form-group reason hidden ">
+                    <div class="col-md-6" >
+                        <div class="col-md-3 " style="margin-top:10px;">
+                            <select name="reject_reason" id="reject_reason" class="form-control input-sm">
+                                <option value="0"  selected disabled>-select reason-</option>
+
+                                @foreach($droneRejectReasons as $droneRejectReason)
+                                    {
+                                    <option value="{{$droneRejectReason->id}}">{{$droneRejectReason->reason}}</option>
+                                    }
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="form-group submit hidden">
+                    <div class="col-md-10">
+                        <button type="submit" type="button" class="btn btn-sm" id="submitId" disabled>Submit</button>
+                    </div>
+                </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
 @endsection
 @section('footer')
     <script>
-
-        $('#rejectId').on('click',function() {
+        $('#rejectId').on('click',function()
+        {
             alert('are you sure you want to reject? if yes press ok');
-
             $('.reason').removeClass('hidden');
             $('.submit').removeClass('hidden');
-            $("#rejectReason").attr('');
+            $("#submitId").removeAttr('disabled');
             $("#approveId").attr('disabled','disabled');
-
-
         })
-
-
     </script>
 @endsection
 
